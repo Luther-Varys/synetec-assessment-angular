@@ -20,6 +20,17 @@ export class BaseService {
         return { headers: headers };
     }
 
+    protected deleteRequestHeaders(): { headers: HttpHeaders | { [header: string]: string | string[]; } } {
+        let headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Accept': `application/json, text/plain, */*`,
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'DELETE'
+        });
+
+        return { headers: headers };
+    }
+
     protected getBaseUrl() : string {
         return this._baseUrl;
     }
